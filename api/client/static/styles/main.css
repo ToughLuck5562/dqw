@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@keyframes resizeNavBar {
+    0% {
+        height: 100vh;
+    }
+    100% {
+        height: 90vh;
+    }
+}
+
+@keyframes resizeNavBarTitleLarge {
+    from {
+        font-size: 1em;
+    }
+    to {
+        font-size: 7em;
+    }
+}
+
+@keyframes resizeNavBarTitleSmall {
+    from {
+        font-size: 1em;
+    }
+    to {
+        font-size: 2em;
+    }
+}
+
+@keyframes resizeGeckoTitleLarge {
+    from {
+        font-size: 1em;
+    }
+    to {
+        font-size: 3em;
+    }
+}
+
+@keyframes resizeGeckoTitleSmall {
+    from {
+        font-size: 1em;
+    }
+    to {
+        font-size: 2em;
+    }
+}
+
+@keyframes drawUnderline {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes loadButtons {
+    from {
+        opacity: 0; 
+        transform: translateY(200px);
+    }
+    to {
+        opacity: 1; 
+        transform: translateY(0px);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+    text-align: center;
+}
+
+body {
+    min-height: 100vh;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('http://wallpapercave.com/wp/3r4q2gx.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-clip: border-box;
+    background-attachment: fixed;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.84);
+    backdrop-filter: blur(25px);
+}
+
+body > * {
+    z-index: 1;
+    color: white;
+}
+
+.nav-bar {
+    max-width: 90%;
+    width: 550px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    animation: resizeNavBar 488ms ease-in-out forwards;
+}
+
+.nav-bar h1 {
+    font-size: 1em;
+    animation: resizeNavBarTitleLarge 999ms ease-in-out forwards;
+    position: relative;
+}
+
+.nav-bar h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: white;
+    animation: drawUnderline 1s ease-out 1.5s forwards;
+    margin-bottom: 25px;
+}
+
+.nav-bar-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    max-width: 100%;
+    align-items: center;
+    margin-top: 25px;
+    justify-content: center;
+}
+
+.nav-bar-list button {
+    transform: translateY(200px);
+    padding: 7px 25px;
+    border: 1px solid white;
+    background: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    opacity: 0; 
+    animation: loadButtons 1200ms ease-in-out forwards;
+    transition: all 388ms ease-in-out;
+    position: relative;
+    align-items: center;
+    display: flex;
+    gap: 5px;
+}
+
+.nav-bar-list button:hover {
+    background-color: white;
+    color: black;
+}
+
+.featured-geckos-container {
+    width: 90%;
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.featured-geckos-container-title {
+    font-size: 1em;
+    margin-bottom: 15px;
+    animation: resizeGeckoTitleLarge 999ms ease-in-out forwards;
+}
+
+.featured-geckos-container-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.featured-geckos-container-link a {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    gap: 5px;
+    color: white;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+.featured-geckos-container-main {
+    width: 450px;
+    max-width: 90%;
+    margin: 25px;
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.featured-geckos-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    align-items: center;
+    justify-content: flex-start;
+    width: 450px;
+    padding: 20px;
+    position: relative;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.featured-geckos-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.featured-geckos-box img {
+    width: 100%;
+    border-radius: 8px;
+    height: auto;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.featured-geckos-box-text {
+    background-color: #fff;
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.featured-geckos-box-text h1 {
+    font-size: 1.5em;
+    font-weight: 700;
+    text-align: center;
+    color: #333;
+}
+
+.featured-geckos-box-text p {
+    font-size: 1.1em;
+    margin: 0;
+}
+
+.featured-geckos-box-text ul {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.featured-geckos-box-text ul p {
+    background: none;
+    font-size: 1.1em;
+    color: #666;
+}
+
+.featured-geckos-box-gender {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #444;
+}
+
+.featured-geckos-box ul {
+    display: flex;
+    gap: 10px;
+}
+
+.footer {
+    margin: 25px;
+    padding: 25px;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .nav-bar h1 {
+        animation: resizeNavBarTitleSmall 999ms ease-in-out forwards;
+        padding-bottom: 15px;
+    }
+}
